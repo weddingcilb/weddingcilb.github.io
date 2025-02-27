@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caroline And Will Wedding!</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: #F3F0F7; /* Soft lavender background */
+      color: #333;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* The background of the top of the page is a full-screen image */
+      background: url('cumberlandfalls.jpg') no-repeat center center / cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Subtle lavender overlay */
+      background: rgba(181, 126, 220, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      margin: 0 2rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+      color: #B57EDC; /* Lavender accent */
+    }
+
+    /* Details */
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .details p {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    /* Schedule */
+    .schedule {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .schedule-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .schedule-list li {
+      margin: 0.5rem 0;
+    }
+
+    /* Registry */
+    .registry {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .registry a {
+      color: #B57EDC; /* Lavender accent */
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .registry a:hover {
+      text-decoration: underline;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      margin-bottom: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* RSVP Button */
+    .rsvp-button {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background-color: #9CAF88; /* Sage accent */
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .rsvp-button:hover {
+      background-color: #8A9E7B; /* Darker sage on hover */
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Caroline Burke And William Smith</h1>
+      <p>We's gettin' hitched on August 14, 2025. Please join us in celebrating our wedding day.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Wedding Details -->
+    <h2 class="section-title">Wedding Details</h2>
+    <div class="details">
+      <p><strong>Date:</strong> 08.14.2025</p>
+      <p><strong>Venue:</strong> Your Mom's Basement</p>
+      <p><strong>Ceremony Time:</strong> 08:00</p>
+      <p><strong>Reception:</strong> Reception to follow at Arby's, cuz they have the meats.</p>
+    </div>
+
+    <!-- Schedule (Optional) -->
+    <div class="schedule">
+      <h2 class="section-title">Schedule</h2>
+      <ul class="schedule-list">
+        <li><strong>08:00</strong> Wedding in your mom's basement</li>
+        <li><strong>08:15</strong> The groom starts yawning</li>
+        <li><strong>12:00</strong> It's 17:00 somewhere.</li>
+      </ul>
+    </div>
+
+    <!-- Gift Registry -->
+    <div class="registry">
+      <h2 class="section-title">Gift Registry</h2>
+      <p>
+        We appreciate your love and support. If you also love us, please visit our registry:
+        <br />
+        <a href="https://www.google.com/">JoseCuervoWeddingRegistryInc.</a>
+      </p>
+    </div>
+
+    <!-- Photo Gallery -->
+    <section class="gallery">
+      <h2 class="section-title">Our Photo Gallery</h2>
+      <div class="gallery-grid">
+        <!-- You can add as many images as you like here -->
+        <img src="justcaroline.jpg" alt="Photo 1" />
+        <img src="justwill.jpg" alt="Photo 2" />
+        <img src="snowhug.jpg" alt="Photo 3" />
+        <img src="justcaroline.jpg" alt="Photo 4" />
+        <img src="cumberlandfalls.jpg" alt="Photo 5" />
+      </div>
+    </section>
+
+    <!-- RSVP Button -->
+    <div style="text-align:center;">
+      <a class="rsvp-button" href="https://www.google.com">RSVP Now</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>We can't wait to get drunk with you!</p>
+  </footer>
+</body>
+</html>
