@@ -97,12 +97,23 @@
             font-weight: bold;
             font-size: 18px;
         }
+        .loading-icon {
+            display: none;
+            font-size: 20px;
+            margin-top: 10px;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("dataForm").addEventListener("submit", function(event) {
                 event.preventDefault();
                 const formData = new FormData(this);
+                const submitButton = this.querySelector("button");
+                const loadingIcon = document.getElementById("loadingIcon");
+                
+                submitButton.style.display = "none";
+                loadingIcon.style.display = "block";
+                
                 fetch(this.action, {
                     method: "POST",
                     body: formData,
@@ -113,6 +124,9 @@
                     window.location.href = "#welcome";
                 }).catch(error => {
                     alert("There was an error submitting the form.");
+                }).finally(() => {
+                    submitButton.style.display = "block";
+                    loadingIcon.style.display = "none";
                 });
             });
         });
@@ -137,6 +151,7 @@
                     <input type="text" id="Address" name="Address" required>
                     
                     <button type="submit">Submit</button>
+                    <div id="loadingIcon" class="loading-icon">⏳ Sending...</div>
                 </form>
             </div>
         </div>
