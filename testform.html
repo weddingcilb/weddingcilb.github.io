@@ -98,7 +98,7 @@
             display: none;
             margin-top: 20px;
             font-size: 18px;
-            color: #FFD700;
+            color: white;
         }
     </style>
     <script>
@@ -109,11 +109,11 @@
                 const submitButton = this.querySelector("button");
                 const loadingIcon = document.getElementById("loadingIcon");
                 const successMessage = document.getElementById("successMessage");
-                const inputs = this.querySelectorAll("input");
+                const fields = this.querySelectorAll("label, input");
                 
                 submitButton.style.display = "none";
                 loadingIcon.style.display = "block";
-                inputs.forEach(input => input.style.display = "none");
+                fields.forEach(field => field.style.display = "none");
                 
                 fetch(this.action, {
                     method: "POST",
