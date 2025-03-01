@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We're Getting Married!</title>
+    <title>We're Tying The Knot!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -27,7 +28,7 @@
             color: white;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
         }
         .section {
@@ -41,26 +42,28 @@
         }
         #welcome { background-image: url('https://weddingcilb.github.io/cumberlandfalls.jpg'); }
         #details { background-image: url('https://weddingcilb.github.io/snowhug.jpg'); }
-        #dresscode { background-image: url('https://weddingcilb.github.io/justcaroline.jpg'); }
+        #ourstory { background-image: url('https://weddingcilb.github.io/justcaroline.jpg'); }
         #rsvp { background-image: url('https://weddingcilb.github.io/justwill.jpg'); }
+
         .content {
             background: rgba(155, 174, 140, 0.8);
-            padding: 20px;
+            padding: 15px;
+            padding-bottom: 30px;
             border-radius: 10px;
-            max-width: 80%;
+            max-width: 85%;
+            padding-left: 5%;
+            padding-right: 5%;
         }
+
         .names {
             font-size:3em;
+            padding-top: 0;
+            padding:0;
+            font-family: 'Imperial Script', cursive;
+            line-height: 5px;
+            letter-spacing:3px;
         }
-        .countdown {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 1.5em;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-        }
+
         .button-container {
             display: flex;
             gap: 10px;
@@ -83,68 +86,56 @@
     <div class="navbar">
         <a href="#welcome">Home</a>
         <a href="#details">Details</a>
-        <a href="#dresscode">Dress Code</a>
-        <a href="#rsvp">RSVP</a>
+        <a href="#ourstory">Our Story</a>
+        <a href="#rsvp">Info</a>
     </div>
     
     <div class="section" id="welcome">
         <div class="content">
-            <h1 font="Brush Script MT">We're Tying Our Tubes!</h1>
-            <h2 style="font-family: Brush Script MT, cursive;" class="names" >Caroline Burke</h2> 
-<p>and</p> 
-<h2 style="font-family: Brush Script MT, cursive;" class="names"> William Smith</h2>
-            <p>08.14.2025</p>
-            <p>Your Mom's Basement</p>
+            <div class="extraspaceinvitation">
+            <h1>We're Tying The Knot!</h1>
+            <h2 class="names" >Caroline    Burke</h2>
+            <p style="line-height:0px;">and</p>
+            <h2 class="names"> William    Smith</h2>
+
+            <p style="line-height:0px; padding-top:20px;">St. Boniface Catholic Church</p>
+            <p style="line-height:0px">Oak Harbor, Ohio</p>
+            </div>
         </div>
     </div>
     
     <div class="section" id="details">
         <div class="content">
-            <h3>Event Details</h3>
-            <p>No booze, no boobs and NO SMILING!</p>
+            <h2>Details</h2>
+            <div style="line-height: 5px">
+            <p>Fall of 2025</p>
+            <p>St. Boniface Catholic Church</p>
+            <p>Oak Harbor Ohio</p>
+            <p>Reception to follow at a local campground</p>
+            <p>Limited overnight camp-spots available to family and friends. </p>
+            <p>Don't want to camp? We'll have other options available!</p>
+            </div>
         </div>
     </div>
     
-    <div class="section" id="dresscode">
+    <div class="section" id="ourstory">
         <div class="content">
-            <h3>Dress Code</h3>
-            <p>In order to ensure all of our guests feel at home and welcome. If you are under 30, kindly come dressed as a hooker from 1982. Pink tutus welcome!</p>
+            <h2>Our Story</h2>
+            <p>This is the story all about how my life got flipped turn upside down.</p>
         </div>
     </div>
     
     <div class="section" id="rsvp">
         <div class="content">
+            <p>Interested in attending? Please let us know below.</p>
             <div class="button-container">
                 <a href="https://www.google.com" class="rsvp-button">RSVP Now</a>
+            </div>
+            <p>Check out our registry!</p>
+            <div class="button-container">
                 <a href="https://www.google.com" class="registry-button">Registry</a>
             </div>
         </div>
     </div>
-    
-    <div class="countdown" id="countdown">
-        Wedding Countdown: <span id="timer"></span>
-    </div>
-    
-    <script>
-        function countdownTimer() {
-            const weddingDate = new Date("2025-08-14T00:00:00").getTime(); // Update with actual date
-            function updateTimer() {
-                const now = new Date().getTime();
-                const timeLeft = weddingDate - now;
-                if (timeLeft > 0) {
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                    document.getElementById("timer").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                } else {
-                    document.getElementById("timer").innerText = "The wedding has started!";
-                }
-            }
-            updateTimer();
-            setInterval(updateTimer, 1000);
-        }
-        countdownTimer();
-    </script>
 </body>
 </html>
