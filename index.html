@@ -31,14 +31,25 @@
             font-size: 20px;
             cursor: pointer;
         }
-        .section {
-            height: 150vh;
+        .sectionfirstpage {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background-size: cover;
             background-position: center;
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
         #welcome { background-image: url('https://weddingcilb.github.io/cumberlandfalls.jpg'); }
         #details { background-image: url('https://weddingcilb.github.io/snowhug.jpg'); }
@@ -80,6 +91,13 @@
             text-decoration: none;
             display: inline-block;
         }
+
+        #details p {
+            word-wrap: break-word;
+            white-space: normal;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
     </style>
 </head>
 <body>
@@ -89,8 +107,8 @@
         <a href="#ourstory">Our Story</a>
         <a href="#rsvp">Info</a>
     </div>
-    
-    <div class="section" id="welcome">
+
+    <div class="sectionfirstpage" id="welcome">
         <div class="content">
             <div class="extraspaceinvitation">
             <h1>We're Tying The Knot!</h1>
@@ -103,28 +121,28 @@
             </div>
         </div>
     </div>
-    
+
     <div class="section" id="details">
         <div class="content">
             <h2>Details</h2>
-            <div style="line-height: 1.5px; margin-top: 1px;">
+            <div>
             <p>Fall of 2025</p>
             <p>St. Boniface Catholic Church</p>
             <p>Oak Harbor Ohio</p>
             <p>Reception to follow at a local campground</p>
-            <p>Limited overnight camp-spots available to family and friends. </p>
+            <p>Limited overnight camp-spots available to family and friends.</p>
             <p>Don't want to camp? We'll have other options available!</p>
             </div>
         </div>
     </div>
-    
+
     <div class="section" id="ourstory">
         <div class="content">
             <h2>Our Story</h2>
             <p>This is the story all about how my life got flipped turn upside down.</p>
         </div>
     </div>
-    
+
     <div class="section" id="rsvp">
         <div class="content">
             <p>Interested in attending? Please let us know below.</p>
@@ -139,3 +157,4 @@
     </div>
 </body>
 </html>
+
