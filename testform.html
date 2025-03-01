@@ -48,38 +48,36 @@
             border-radius: 10px;
             max-width: 400px;
             width: 100%;
-            text-align: left;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             color: white;
             font-weight: bold;
         }
-        .form-container label {
+        .form-container label, .form-container input, .form-container button {
             display: block;
-            width: 100%;
+            width: 90%;
             margin-bottom: 10px;
             font-size: 18px;
         }
         .form-container input {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
             border: none;
         }
         .form-container button {
-            background: #FFD700;
-            color: black;
+            background: #808080;
+            color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
-            width: 100%;
             border-radius: 5px;
             font-weight: bold;
             font-size: 18px;
+            text-align: center;
+            width: 90%;
         }
         .loading-icon {
             display: none;
@@ -95,6 +93,12 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #FFD700;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -103,6 +107,7 @@
                 const formData = new FormData(this);
                 const submitButton = this.querySelector("button");
                 const loadingIcon = document.getElementById("loadingIcon");
+                const successMessage = document.getElementById("successMessage");
                 
                 submitButton.style.display = "none";
                 loadingIcon.style.display = "block";
@@ -112,13 +117,12 @@
                     body: formData,
                     redirect: "manual"
                 }).then(response => {
-                    alert("Form submitted successfully!");
                     this.reset();
-                    window.location.href = "#welcome";
+                    successMessage.style.display = "block";
                 }).catch(error => {
-                    alert("There was an error submitting the form.");
+                    successMessage.innerText = "There was an error submitting the form.";
+                    successMessage.style.display = "block";
                 }).finally(() => {
-                    submitButton.style.display = "block";
                     loadingIcon.style.display = "none";
                 });
             });
@@ -139,6 +143,7 @@
                     
                     <button type="submit">Submit</button>
                     <div id="loadingIcon" class="loading-icon"></div>
+                    <div id="successMessage" class="success-message">Successfully submitted!</div>
                 </form>
             </div>
         </div>
