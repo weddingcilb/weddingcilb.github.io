@@ -98,7 +98,96 @@
             margin-bottom: 5px;
             line-height: 1.2;
         }
+
+        .form-container {
+            margin-top: 20px;
+            background: #C3A2C7;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+        .form-container label, .form-container input, .form-container button {
+            display: block;
+            width: 90%;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .form-container input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        .form-container button {
+            background: #808080;
+            color: white;
+            border: none;
+            padding: 10px;
+            padding-left: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            width: 90%;
+        }
+        .loading-icon {
+            display: none;
+            margin-top: 10px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #FFD700;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("dataForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                const submitButton = this.querySelector("button");
+                const loadingIcon = document.getElementById("loadingIcon");
+                const successMessage = document.getElementById("successMessage");
+                const fields = this.querySelectorAll("label, input");
+                
+                submitButton.style.display = "none";
+                loadingIcon.style.display = "block";
+                fields.forEach(field => field.style.display = "none");
+                
+                fetch(this.action, {
+                    method: "POST",
+                    body: formData,
+                    redirect: "manual"
+                }).then(response => {
+                    successMessage.style.display = "block";
+                }).catch(error => {
+                    successMessage.innerText = "There was an error submitting the form.";
+                    successMessage.style.display = "block";
+                }).finally(() => {
+                    loadingIcon.style.display = "none";
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="navbar">
@@ -146,12 +235,18 @@
     <div class="section" id="rsvp">
         <div class="content">
             <p>Interested in attending? Make sure we have your address right!</p>
-            <div class="button-container">
-                <a href="https://www.google.com" class="rsvp-button">Verify Address</a>
-            </div>
-            <p>Can't make it? </p>
-            <div class="button-container">
-                <a href="https://www.google.com" class="registry-button">Registry</a>
+            <div class="form-container">
+                <form id="dataForm" action="https://script.google.com/macros/s/AKfycbxDNI1a_xvT5VNMdZwkP7qh4D6MCY83OisSdH2YbMQ8HuWwWqUCEJTdlOvLqKe7eSle/exec" method="post">
+                    <label for="Name">Name:</label>
+                    <input type="text" id="Name" name="Name" required>
+                    
+                    <label for="Address">Address:</label>
+                    <input type="text" id="Address" name="Address" required>
+                    
+                    <button type="submit">Submit</button>
+                    <div id="loadingIcon" class="loading-icon"></div>
+                    <div id="successMessage" class="success-message">Thanks for your submission!</div>
+                </form>
             </div>
         </div>
     </div>
