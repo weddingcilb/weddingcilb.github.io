@@ -54,7 +54,7 @@
         }
         #home { background-image: url('https://weddingcilb.github.io/Image1.jpg'); }
         #details { background-image: url('https://weddingcilb.github.io/Image2.jpg'); }
-        #ourstory { ; }
+        #ourstory { }
         #info { background-image: url('https://weddingcilb.github.io/Image3.jpg'); }
 
         .content {
@@ -166,7 +166,17 @@
             text-decoration: none;
             display: inline-block;
         }
-
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -177,11 +187,11 @@
                 const loadingIcon = document.getElementById("loadingIcon");
                 const successMessage = document.getElementById("successMessage");
                 const fields = this.querySelectorAll("label, input");
-                
+
                 submitButton.style.display = "none";
                 loadingIcon.style.display = "block";
                 fields.forEach(field => field.style.display = "none");
-                
+
                 fetch(this.action, {
                     method: "POST",
                     body: formData,
@@ -238,6 +248,12 @@
         <div class="content">
             <h2>Our Story</h2>
             <p>(This will be replaced with a brief article about how Will and Carol met, and their decision to get married.)</p>
+            <div class="gallery">
+                <img src="https://weddingcilb.github.io/Image4.jpg" alt="Gallery Image 1">
+                <img src="https://weddingcilb.github.io/Image5.jpg" alt="Gallery Image 2">
+                <img src="https://weddingcilb.github.io/Image6.jpg" alt="Gallery Image 3">
+                <img src="https://weddingcilb.github.io/Image7.jpg" alt="Gallery Image 4">
+            </div>
         </div>
     </div>
 
