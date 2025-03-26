@@ -110,14 +110,15 @@
         .form-container * {
             box-sizing: border-box;
         }
-        .form-container label, .form-container input, .form-container button {
+        .form-container label, .form-container input, .form-container select, .form-container button {
             display: block;
             width: 90%;
             margin-bottom: 10px;
             font-size: 18px;
             text-align: center;
+            font-family: Courier;
         }
-        .form-container input {
+        .form-container input, .form-container select {
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
@@ -290,11 +291,13 @@
                 event.preventDefault();
                 const formData = new FormData(this);
                 const submitButton = this.querySelector("button");
+                const dropDown = this.querySelector("select");
                 const loadingIcon = document.getElementById("loadingIcon");
                 const successMessage = document.getElementById("successMessage");
                 const fields = this.querySelectorAll("label, input");
 
                 submitButton.style.display = "none";
+                dropDown.style.display = "none";
                 loadingIcon.style.display = "block";
                 fields.forEach(field => field.style.display = "none");
 
@@ -395,9 +398,9 @@
 
                     <label for="Attending">Attending</label>
                     <select id="Attending" name="Attending" required>
-                        <option value="Option 1">Option 1</option>
-                        <option value="Option 2">Option 2</option>
-                        <option value="Option 3">Option 3</option>
+                        <option value="Ceremony Only">Ceremony Only</option>
+                        <option value="2026 Reception">2026 Reception</option>
+                        <option value="Both">Both</option>
                     </select>
 
                     <button type="submit">Submit</button>
